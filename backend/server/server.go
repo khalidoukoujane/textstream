@@ -31,6 +31,9 @@ func wsHandler (w http.ResponseWriter, r *http.Request) {
 	go decoder.StartDecoder(vidPath, frames)
 	for frame := range(frames) {
 		data := encoder.EncodeFrame(frame, 160, 90)
+		if data == nil {
+    	    continue
+		}
 		<-ticker.C
 		err := conn.WriteMessage(websocket.BinaryMessage, data)
 		if err != nil {
