@@ -1,8 +1,11 @@
 package encoder
 
 func EncodeFrame(raw []byte, width, height int) []byte {
+	if len(raw) == 0 {
+		return nil
+	}
 	chars := []byte("@#S%?*+;:,. ")
-	elems := make([]byte, 0, width*height*4)
+	elems := make([]byte, width*height*4)
 	for i := 0; i < len(raw); i+=3 {
 		r := raw[i]
 		g := raw[i + 1]
