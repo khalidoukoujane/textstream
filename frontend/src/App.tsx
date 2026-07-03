@@ -29,7 +29,10 @@ function App() {
       ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      const colorMap = new Map<string, { chars: string[]; xs: number[]; ys: number[] }>();
+      const colorMap = new Map<
+        string,
+        { chars: string[]; xs: number[]; ys: number[] }
+      >();
 
       for (let i = 0; i < view.length; i += 4) {
         const r = view[i];
@@ -88,11 +91,14 @@ function App() {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={WIDTH * CHAR_WIDTH}
-      height={HEIGHT * CHAR_HEIGHT}
-    />
+    <>
+    <h1 className="header">This is not a video its just Text</h1>
+      <canvas
+        ref={canvasRef}
+        width={WIDTH * CHAR_WIDTH}
+        height={HEIGHT * CHAR_HEIGHT}
+      />
+    </>
   );
 }
 

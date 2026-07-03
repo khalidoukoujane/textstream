@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.header {
+  font-size: 100px;
+}
+canvas {
+  max-width: 60%;
+  max-height: 800px;
+  align-self: center;
+  display: block; /* removes inline spacing */
+  image-rendering: pixelated; /* no blurry scaling */
+}
