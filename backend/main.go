@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/khalidoukoujane/textstream/decoder"
+
+	"github.com/khalidoukoujane/textstream/server"
 )
 
 func main() {
 	fmt.Println("Hello")
-	ch := make(chan []byte, 10)
-	go decoder.StartDecoder("vid", ch)
+	server.StartServer()
 }
