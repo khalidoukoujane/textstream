@@ -29,13 +29,11 @@ func wsHandler (w http.ResponseWriter, r *http.Request) {
 	frames := make(chan []byte, 10)
 	ticker := time.NewTicker(time.Second / 30)
 	go decoder.StartDecoder(vidPath, frames)
+	result := make([]byte, 160*90*4)
 	for frame := range(frames) {
-		data := encoder.EncodeFrame(frame, 160, 90)
-		if data == nil {
-    	    continue
-		}
+		encoder.EncodeFrame(frame, result, 160, 90)
 		<-ticker.C
-		err := conn.WriteMessage(websocket.BinaryMessage, data)
+		err := conn.WriteMessage(websocket.BinaryMessage, result)
 		if err != nil {
 			log.Println("client disconnected")
 			break

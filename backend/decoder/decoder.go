@@ -9,7 +9,7 @@ func StartDecoder(filepath string, frames chan<- []byte) error {
 	//ffmpeg -i video.mp4 -f rawvideo -pix_fmt rgb24 -vf scale=160:90 pipe:1
 	w := 160
 	h := 90
-	cmd := exec.Command("ffmpeg", "-i", filepath, "-f", "rawvideo", "-pix_fmt", "rgb24", "-vf", "scale=160:90", "pipe:1")
+	cmd := exec.Command("ffmpeg", "-loglevel", "quiet", "-i", filepath, "-f", "rawvideo", "-pix_fmt", "rgb24", "-vf", "scale=160:90", "pipe:1")
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return  err
