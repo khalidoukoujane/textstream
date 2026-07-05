@@ -27,7 +27,7 @@ func wsHandler (w http.ResponseWriter, r *http.Request) {
 	}
 	defer conn.Close()
 	frames := make(chan []byte, 10)
-	ticker := time.NewTicker(time.Second / 30)
+	ticker := time.NewTicker(time.Second / 60)
 	go decoder.StartDecoder(vidPath, frames)
 	result := make([]byte, 160*90*4)
 	for frame := range(frames) {
