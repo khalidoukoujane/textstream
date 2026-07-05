@@ -1,15 +1,29 @@
+/* App.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.header {
-  font-size: 100px;
+
+body {
+  background: #d7cfcf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 16px;
 }
+
+.header {
+  color: #000000;
+  font-family: sans-serif;
+  font-size: 50px;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
 canvas {
-  max-width: 60%;
-  max-height: 800px;
-  align-self: center;
-  display: block; /* removes inline spacing */
-  image-rendering: pixelated; /* no blurry scaling */
+  display: block;
+  border-radius: 20px;
 }
