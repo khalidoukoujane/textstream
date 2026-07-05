@@ -29,7 +29,8 @@ function App() {
       return colorCache.get(key)!;
     };
 
-    const ws = new WebSocket("ws://localhost:3000/ws");
+
+    const ws = new WebSocket(`ws://localhost:8080/ws`);
     ws.binaryType = "arraybuffer";
 
     ws.onmessage = (event) => {
@@ -47,7 +48,8 @@ function App() {
           prevFrame[i + 1] === g &&
           prevFrame[i + 2] === b &&
           prevFrame[i + 3] === view[i + 3]
-        ) continue;
+        )
+          continue;
 
         const col = (i / 4) % WIDTH;
         const row = Math.floor(i / 4 / WIDTH);
