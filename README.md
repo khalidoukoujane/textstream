@@ -1,6 +1,6 @@
 # textstream
 
-Stream any video file as colored pixels in the browser no video element, no codec, just a canvas drawing colored blocks at 30fps.
+Stream any video file as colored pixels in the browser no video element, no codec, just a canvas drawing colored blocks at 60fps.
 
 ---
 
