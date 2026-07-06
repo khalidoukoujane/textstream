@@ -44,7 +44,7 @@ func wsHandler (w http.ResponseWriter, r *http.Request) {
 func StartServer(videoPath string) {
 	vidPath = videoPath
 	http.HandleFunc("/ws", wsHandler)
-	frontendPath := "../frontend/dist"
+	frontendPath := "./frontend/dist"
 	http.Handle("/", http.FileServer(http.Dir(frontendPath)))
 	fmt.Println("starting server on port: 8080")
 	err := http.ListenAndServe(":8080", nil)
