@@ -42,6 +42,7 @@ function App() {
         const r = view[i];
         const g = view[i + 1];
         const b = view[i + 2];
+        // const charCode = view[i + 3];
         if (
           prevFrame &&
           prevFrame[i] === r &&
@@ -56,6 +57,15 @@ function App() {
 
         const x = col * CHAR_WIDTH;
         const y = row * CHAR_HEIGHT;
+        // ctx.fillStyle = "#000000";
+        // ctx.fillRect(x, y, CHAR_WIDTH, CHAR_HEIGHT);
+
+        // const char = String.fromCharCode(charCode);
+        // if (char === " ") continue;
+
+        // // draw colored char
+        // ctx.fillStyle = getColor(r, g, b);
+        // ctx.fillText(char, x, y);
         ctx.fillStyle = getColor(r, g, b);
         ctx.fillRect(x, y, CHAR_WIDTH, CHAR_HEIGHT);
       }
