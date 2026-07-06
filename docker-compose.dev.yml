@@ -1,0 +1,13 @@
+services:
+  textstream:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - ./video.mp4:/app/video.mp4
+
+    command: ["/app/video.mp4"]
