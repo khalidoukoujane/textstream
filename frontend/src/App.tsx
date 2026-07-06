@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
 
-const WIDTH = 160;
-const HEIGHT = 90;
-const CHAR_WIDTH = 8;
-const CHAR_HEIGHT = 8;
+const WIDTH = 320;
+const HEIGHT = 180;
+const CHAR_WIDTH = 4;
+const CHAR_HEIGHT = 4;
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -93,12 +93,23 @@ function App() {
 
   return (
     <>
+    <div className="container">
       <h1 className="header">This is not a video its just Text</h1>
       <canvas
         ref={canvasRef}
         width={WIDTH * CHAR_WIDTH}
         height={HEIGHT * CHAR_HEIGHT}
       />
+        <h1 className="header">How it works</h1>
+        <p>
+        textstream pipes your video through ffmpeg, extracting raw RGB frames at 60fps.
+        each frame is mapped pixel by pixel into a colored block and packed into a binary payload.
+         that payload is sent over a WebSocket connection to the browser,
+          where a Canvas draws 14,400 colored rectangles per frame no video element,
+           no codec, no browser autoplay restrictions. just a Go server, a WebSocket,
+            and a canvas pretending to be a video.
+            </p>
+    </div>
     </>
   );
 }
