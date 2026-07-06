@@ -20,9 +20,9 @@ func EncodeFrame(raw []byte, result []byte,  width, height int)  {
                 for col := 0; col < width; col++ {
                     inIdx := (row*width + col) * 3
                     outIdx := (row*width + col) * 4
-                    r := raw[inIdx]
-                    g := raw[inIdx+1]
-                    b := raw[inIdx+2]
+                    r := raw[inIdx] & 0xF8
+                    g := raw[inIdx+1] & 0xF8
+                    b := raw[inIdx+2] & 0xF8
                     brightness := (int(r) + int(g) + int(b)) / 3
                     charIdx := brightness * (len(chars)-1) / 255  
                     result[outIdx] = r

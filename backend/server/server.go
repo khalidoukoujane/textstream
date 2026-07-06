@@ -29,9 +29,11 @@ func wsHandler (w http.ResponseWriter, r *http.Request) {
 	frames := make(chan []byte, 10)
 	ticker := time.NewTicker(time.Second / 60)
 	go decoder.StartDecoder(vidPath, frames)
-	result := make([]byte, 160*90*4)
+	wdth := 320
+	height := 180
+	result := make([]byte, wdth*height*4)
 	for frame := range(frames) {
-		encoder.EncodeFrame(frame, result, 160, 90)
+		encoder.EncodeFrame(frame, result, wdth, height)
 		<-ticker.C
 		err := conn.WriteMessage(websocket.BinaryMessage, result)
 		if err != nil {
